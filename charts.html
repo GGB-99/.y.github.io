@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <title>WarZone Hub — 战绩数据</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/charts.css" />
+</head>
+<body>
+
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainNav">
+                    <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><i class="fa fa-crosshairs"></i> WarZoo Hub</a>
+            </div>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html"><i class="fa fa-home"></i> 首页</a></li>
+                    <li class="active"><a href="charts.html"><i class="fa fa-bar-chart"></i> 战绩数据</a></li>
+                    <li><a href="about.html"><i class="fa fa-user"></i> 关于我</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right" id="navUserArea">
+                    <li id="navLoginBtn"><a href="login.html"><i class="fa fa-sign-in"></i> 登录</a></li>
+                    <li id="navRegBtn"><a href="login.html#register"><i class="fa fa-user-plus"></i> 注册</a></li>
+                    <li class="dropdown" id="navUserMenu" style="display:none;">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <span class="navbar-user"><img src="img/avatar.png" id="navAvatar" /><span id="navUsername">指挥官</span></span>
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="about.html"><i class="fa fa-user"></i> 个人中心</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#" id="btnLogout"><i class="fa fa-sign-out"></i> 退出登录</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <!-- 顶部标题 -->
+        <div class="charts-hero">
+            <h2><i class="fa fa-bar-chart"></i> 战场数据中心</h2>
+            <p>战争雷霆 &amp; 战术小队核心数据分析 — 基于真实游戏体验</p>
+        </div>
+
+        <!-- 数据概览 -->
+        <div class="row">
+            <div class="col-xs-6 col-sm-3">
+                <div class="overview-card ov-red">
+                    <i class="fa fa-crosshairs"></i>
+                    <span class="ov-num">2,860h</span>
+                    <span class="ov-label">总游戏时长</span>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+                <div class="overview-card ov-gold">
+                    <i class="fa fa-bolt"></i>
+                    <span class="ov-num">12,680</span>
+                    <span class="ov-label">总击杀数</span>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+                <div class="overview-card ov-blue">
+                    <i class="fa fa-line-chart"></i>
+                    <span class="ov-num">1.85</span>
+                    <span class="ov-label">综合 K/D</span>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+                <div class="overview-card ov-green">
+                    <i class="fa fa-trophy"></i>
+                    <span class="ov-num">54.2%</span>
+                    <span class="ov-label">综合胜率</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== 战争雷霆板块 ===== -->
+        <div class="charts-section-title">
+            <i class="fa fa-fighter-jet"></i>
+            <h3>战争雷霆数据分析</h3>
+            <span class="line"></span>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="chart-card">
+                    <div class="chart-card-header">
+                        <i class="fa fa-bar-chart"></i>
+                        <h4>各系别平均胜率</h4>
+                        <span class="chart-badge">Ground+Air</span>
+                    </div>
+                    <div class="chart-card-body"><div id="wtWinRate" class="chart-box"></div></div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="chart-card">
+                    <div class="chart-card-header">
+                        <i class="fa fa-line-chart"></i>
+                        <h4>月度在线人数趋势</h4>
+                        <span class="chart-badge">2024全年</span>
+                    </div>
+                    <div class="chart-card-body"><div id="wtOnline" class="chart-box"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="chart-card">
+                    <div class="chart-card-header">
+                        <i class="fa fa-pie-chart"></i>
+                        <h4>载具类型使用占比</h4>
+                        <span class="chart-badge">个人数据</span>
+                    </div>
+                    <div class="chart-card-body"><div id="wtVehicleType" class="chart-box"></div></div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="chart-card">
+                    <div class="chart-card-header">
+                        <i class="fa fa-superpowers"></i>
+                        <h4>各系别综合评分雷达</h4>
+                        <span class="chart-badge">6维评估</span>
+                    </div>
+                    <div class="chart-card-body"><div id="wtRadar" class="chart-box"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-5">
+                <div class="chart-card">
+                    <div class="chart-card-header">
+                        <i class="fa fa-list-ol"></i>
+                        <h4>主力载具 K/D 排行</h4>
+                    </div>
+                    <div class="chart-card-body">
+                        <table class="mini-table">
+                            <thead>
+                                <tr><th>#</th><th>载具名称</th><th>类型</th><th>K/D</th><th>胜率</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="rank-num rank-1">1</td><td>F-16C</td><td><span class="label label-danger">空战</span></td><td><strong>3.2</strong></td><td><span class="win-bar" style="width:58px;background:#66bb6a;"></span> 58%</td></tr>
+                                <tr><td class="rank-num rank-2">2</td><td>豹2A7V</td><td><span class="label label-warning">陆战</span></td><td><strong>2.8</strong></td><td><span class="win-bar" style="width:55px;background:#d4a843;"></span> 55%</td></tr>
+                                <tr><td class="rank-num rank-3">3</td><td>Su-27SM</td><td><span class="label label-danger">空战</span></td><td><strong>2.5</strong></td><td><span class="win-bar" style="width:53px;background:#5bc0de;"></span> 53%</td></tr>
+                                <tr><td class="rank-num">4</td><td>T-80BVM</td><td><span class="label label-warning">陆战</span></td><td><strong>2.3</strong></td><td><span class="win-bar" style="width:54px;background:#ef5350;"></span> 54%</td></tr>
+                                <tr><td class="rank-num">5</td><td>ZTZ99A</td><td><span class="label label-warning">陆战</span></td><td><strong>2.1</strong></td><td><span class="win-bar" style="width:53px;background:#ab47bc;"></span> 53%</td></tr>
+                                <tr><td class="rank-num">6</td><td>M1A2 SEPv2</td><td><span class="label label-warning">陆战</span></td><td><strong>1.9</strong></td><td><span class="win-bar" style="width:52px;background:#ffa726;"></span> 52%</td></tr>
+                                <tr><td class="rank-num">7</td><td>MiG-29</td><td><span class="label label-danger">空战</span></td><td><strong>1.8</strong></td><td><span class="win-bar" style="width:50px;background:#78909c;"></span> 50%</td></tr>
+                                <tr><td class="rank-num">8</td><td>挑战者2F</td><td><span class="label label-warning">陆战</span></td><td><strong>1.6</strong></td><td><span class="win-bar" style="width:51px;background:#8d6e63;"></span> 51%</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="chart-card">
+                    <div class="chart-card-header">
+                        <i class="fa fa-area-chart"></i>
+                        <h4>各赛季击杀数趋势</h4>
+                        <span class="chart-badge">10赛季</span>
+                    </div>
+                    <div class="chart-card-body"><div id="wtKillsTrend" class="chart-box"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== 战术小队板块 ===== -->
+        <div class="charts-section-title">
+            <i class="fa fa-users"></i>
+            <h3>战术小队数据分析</h3>
+            <span class="line"></span>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="chart-card">
+                    <div class="chart-card-header">
+                        <i class="fa fa-bar-chart"></i>
+                        <h4>兵种游戏时长分布</h4>
+                        <span class="chart-badge">个人数据</span>
+                    </div>
+                    <div class="chart-card-body"><div id="sqRoles" class="chart-box"></div></div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="chart-card">
+                    <div class="chart-card-header">
+                        <i class="fa fa-pie-chart"></i>
+                        <h4>阵营使用占比</h4>
+                        <span class="chart-badge">全部对局</span>
+                    </div>
+                    <div class="chart-card-body"><div id="sqFaction" class="chart-box"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="chart-card">
+                    <div class="chart-card-header">
+                        <i class="fa fa-line-chart"></i>
+                        <h4>月度对局数 &amp; 胜率</h4>
+                        <span class="chart-badge">2024下半年</span>
+                    </div>
+                    <div class="chart-card-body"><div id="sqMonthly" class="chart-box"></div></div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="chart-card">
+                    <div class="chart-card-header">
+                        <i class="fa fa-superpowers"></i>
+                        <h4>个人战术能力评估</h4>
+                        <span class="chart-badge">指挥/步兵/载具</span>
+                    </div>
+                    <div class="chart-card-body"><div id="sqRadar" class="chart-box"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="chart-card">
+                    <div class="chart-card-header">
+                        <i class="fa fa-bullseye"></i>
+                        <h4>兵种 K/D 与评分关系</h4>
+                        <span class="chart-badge">战争雷霆 + 战术小队</span>
+                    </div>
+                    <div class="chart-card-body"><div id="scatterChart" class="chart-box"></div></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer">
+        <div class="container">
+            <p>
+                <a href="#"><i class="fa fa-steam"></i></a>
+                <a href="#"><i class="fa fa-discord"></i></a>
+                <a href="#"><i class="fa fa-bilibili"></i></a>
+                <a href="#"><i class="fa fa-youtube-play"></i></a>
+            </p>
+            <p>&copy; 2025 WarZoo Hub &nbsp;|&nbsp;
+                <a href="index.html">首页</a> &nbsp;|&nbsp;
+                <a href="charts.html">战绩数据</a> &nbsp;|&nbsp;
+                <a href="about.html">关于我</a> &nbsp;|&nbsp;
+                <a href="login.html">登录</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+    <script>
+        var BG = 'transparent';
+        var TIP = { backgroundColor:'rgba(20,23,28,0.95)', borderColor:'#2a2d33', textStyle:{color:'#e0e4ea',fontSize:13}, confine:true };
+        var AL = { color:'#5a6470', fontSize:11 };
+        var AX = { lineStyle:{color:'#2a2d33'} };
+        var SP = { lineStyle:{color:'#1a1d22'} };
+        var RED='#c0392b', GOLD='#d4a843', BLUE='#5bc0de', GREEN='#66bb6a', PURPLE='#ab47bc', ORANGE='#ff7043';
+
+        function G(a,b){return new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:a},{offset:1,color:b}]);}
+
+        // 1. 胜率柱状图
+        echarts.init(document.getElementById('wtWinRate')).setOption({
+            backgroundColor:BG, tooltip:{trigger:'axis',...TIP},
+            legend:{data:['陆战','空战'],textStyle:{color:'#8a95a5',fontSize:12},bottom:5,itemWidth:14,itemHeight:10},
+            grid:{left:50,right:20,top:20,bottom:50},
+            xAxis:{type:'category',data:['美系','苏系','德系','中系','英系','日系','法系','瑞典','以色列'],axisLabel:{...AL,rotate:30},axisLine:AX},
+            yAxis:{type:'value',name:'胜率(%)',nameTextStyle:{color:'#5a6470',fontSize:11},axisLabel:AL,splitLine:SP,max:60},
+            series:[
+                {name:'陆战',type:'bar',data:[52,54,50,53,48,46,47,49,45],itemStyle:{color:G(RED,'#8e2619'),borderRadius:[2,2,0,0]},barWidth:'30%',barGap:'20%'},
+                {name:'空战',type:'bar',data:[55,53,49,50,47,48,46,51,44],itemStyle:{color:G(GOLD,'#8b6914'),borderRadius:[2,2,0,0]},barWidth:'30%'}
+            ]
+        });
+
+        // 2. 在线人数
+        echarts.init(document.getElementById('wtOnline')).setOption({
+            backgroundColor:BG, tooltip:{trigger:'axis',...TIP},
+            legend:{data:['战争雷霆','战术小队'],textStyle:{color:'#8a95a5',fontSize:12},bottom:5,itemWidth:14,itemHeight:10},
+            grid:{left:50,right:20,top:20,bottom:50},
+            xAxis:{type:'category',data:['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],axisLabel:AL,axisLine:AX},
+            yAxis:{type:'value',name:'峰值在线(万)',nameTextStyle:{color:'#5a6470',fontSize:11},axisLabel:AL,splitLine:SP},
+            series:[
+                {name:'战争雷霆',type:'line',data:[18,17,19,21,20,23,25,28,22,24,26,30],smooth:true,lineStyle:{color:RED,width:3},areaStyle:{color:G('rgba(192,57,43,0.3)','rgba(192,57,43,0.02)')},itemStyle:{color:RED},symbol:'circle',symbolSize:6},
+                {name:'战术小队',type:'line',data:[5,5,6,7,7,8,9,10,8,9,10,12],smooth:true,lineStyle:{color:GOLD,width:3},areaStyle:{color:G('rgba(212,168,67,0.3)','rgba(212,168,67,0.02)')},itemStyle:{color:GOLD},symbol:'circle',symbolSize:6}
+            ]
+        });
+
+        // 3. 载具饼图
+        echarts.init(document.getElementById('wtVehicleType')).setOption({
+            backgroundColor:BG, tooltip:{trigger:'item',formatter:'{b}<br/>{c}场 ({d}%)',...TIP},
+            legend:{orient:'vertical',right:15,top:'center',textStyle:{color:'#8a95a5',fontSize:12},itemWidth:12,itemHeight:10},
+            series:[{name:'载具类型',type:'pie',radius:['40%','70%'],center:['40%','50%'],itemStyle:{borderRadius:4,borderColor:'#14171c',borderWidth:3},label:{show:false},emphasis:{label:{show:true,fontSize:14,fontWeight:'bold',color:'#e0e4ea'}},
+                data:[
+                    {value:3500,name:'主战坦克',itemStyle:{color:RED}},
+                    {value:2800,name:'战斗机',itemStyle:{color:GOLD}},
+                    {value:1200,name:'攻击机/轰炸机',itemStyle:{color:BLUE}},
+                    {value:800,name:'直升机',itemStyle:{color:GREEN}},
+                    {value:600,name:'舰艇',itemStyle:{color:PURPLE}},
+                    {value:500,name:'轻坦/IFV',itemStyle:{color:ORANGE}}
+                ]
+            }]
+        });
+
+        // 4. 系别雷达
+        echarts.init(document.getElementById('wtRadar')).setOption({
+            backgroundColor:BG, tooltip:{...TIP},
+            legend:{data:['美系','苏系','中系','德系'],textStyle:{color:'#8a95a5',fontSize:12},bottom:5,itemWidth:14,itemHeight:10},
+            radar:{indicator:[{name:'火力',max:100},{name:'机动',max:100},{name:'防护',max:100},{name:'观瞄',max:100},{name:'空战',max:100},{name:'综合',max:100}],center:['50%','48%'],radius:'60%',axisName:{color:'#5a6470',fontSize:11},splitArea:{areaStyle:{color:['#111418','#14171c','#111418','#14171c','#111418']}},splitLine:{lineStyle:{color:'#2a2d33'}},axisLine:{lineStyle:{color:'#2a2d33'}}},
+            series:[{type:'radar',data:[
+                {value:[80,85,82,90,92,85],name:'美系',lineStyle:{color:RED,width:2},itemStyle:{color:RED},areaStyle:{opacity:0.1}},
+                {value:[92,78,88,75,85,84],name:'苏系',lineStyle:{color:GOLD,width:2},itemStyle:{color:GOLD},areaStyle:{opacity:0.1}},
+                {value:[88,80,85,78,80,82],name:'中系',lineStyle:{color:BLUE,width:2},itemStyle:{color:BLUE},areaStyle:{opacity:0.1}},
+                {value:[85,75,90,82,80,82],name:'德系',lineStyle:{color:GREEN,width:2},itemStyle:{color:GREEN},areaStyle:{opacity:0.1}}
+            ]}]
+        });
+
+        // 5. 击杀趋势
+        echarts.init(document.getElementById('wtKillsTrend')).setOption({
+            backgroundColor:BG, tooltip:{trigger:'axis',...TIP},
+            legend:{data:['坦克击杀','飞机击杀','总击杀'],textStyle:{color:'#8a95a5',fontSize:12},bottom:5,itemWidth:14,itemHeight:10},
+            grid:{left:50,right:20,top:20,bottom:50},
+            xAxis:{type:'category',boundaryGap:false,data:['S1','S2','S3','S4','S5','S6','S7','S8','S9','S10'],axisLabel:AL,axisLine:AX},
+            yAxis:{type:'value',name:'击杀数',nameTextStyle:{color:'#5a6470',fontSize:11},axisLabel:AL,splitLine:SP},
+            series:[
+                {name:'坦克击杀',type:'line',data:[120,180,250,310,420,380,460,520,600,680],smooth:true,lineStyle:{color:RED,width:2},areaStyle:{color:G('rgba(192,57,43,0.3)','rgba(192,57,43,0.02)')},itemStyle:{color:RED},symbol:'circle',symbolSize:5},
+                {name:'飞机击杀',type:'line',data:[80,130,160,200,280,320,350,400,430,480],smooth:true,lineStyle:{color:GOLD,width:2},areaStyle:{color:G('rgba(212,168,67,0.3)','rgba(212,168,67,0.02)')},itemStyle:{color:GOLD},symbol:'circle',symbolSize:5},
+                {name:'总击杀',type:'line',data:[200,310,410,510,700,700,810,920,1030,1160],smooth:true,lineStyle:{color:BLUE,width:2,type:'dashed'},itemStyle:{color:BLUE},symbol:'diamond',symbolSize:6}
+            ]
+        });
+
+        // 6. Squad兵种时长
+        echarts.init(document.getElementById('sqRoles')).setOption({
+            backgroundColor:BG, tooltip:{trigger:'axis',...TIP},
+            grid:{left:80,right:30,top:20,bottom:30},
+            xAxis:{type:'value',name:'小时',nameTextStyle:{color:'#5a6470'},axisLabel:AL,splitLine:SP},
+            yAxis:{type:'category',data:['工兵','医疗兵','射手','机枪手','反坦克','步枪兵','载具驾驶','小队长','指挥官'],axisLabel:{...AL,fontSize:12},axisLine:AX},
+            series:[{type:'bar',data:[
+                {value:65,itemStyle:{color:G(GREEN,'#2e7d32')}},
+                {value:80,itemStyle:{color:G(GREEN,'#2e7d32')}},
+                {value:95,itemStyle:{color:G(BLUE,'#0277bd')}},
+                {value:110,itemStyle:{color:G(BLUE,'#0277bd')}},
+                {value:120,itemStyle:{color:G(ORANGE,'#bf360c')}},
+                {value:150,itemStyle:{color:G(GOLD,'#8b6914')}},
+                {value:180,itemStyle:{color:G(PURPLE,'#6a1b9a')}},
+                {value:280,itemStyle:{color:G(RED,'#8e2619')}},
+                {value:480,itemStyle:{color:G(RED,'#8e2619')}}
+            ],barWidth:'50%',label:{show:true,position:'right',color:'#8a95a5',fontSize:12,fontFamily:'Rajdhani',fontWeight:700,formatter:'{c}h'}}]
+        });
+
+        // 7. Squad阵营饼图
+        echarts.init(document.getElementById('sqFaction')).setOption({
+            backgroundColor:BG, tooltip:{trigger:'item',formatter:'{b}<br/>{c}场 ({d}%)',...TIP},
+            legend:{orient:'vertical',right:10,top:'center',textStyle:{color:'#8a95a5',fontSize:12},itemWidth:12,itemHeight:10},
+            series:[{name:'阵营',type:'pie',radius:['35%','65%'],center:['40%','50%'],roseType:'area',itemStyle:{borderRadius:4,borderColor:'#14171c',borderWidth:3},label:{color:'#8a95a5',fontSize:12,formatter:'{b}\n{d}%'},
+                data:[
+                    {value:320,name:'美军',itemStyle:{color:'#4caf50'}},
+                    {value:280,name:'俄军',itemStyle:{color:RED}},
+                    {value:180,name:'英军',itemStyle:{color:'#42a5f5'}},
+                    {value:150,name:'PLA',itemStyle:{color:GOLD}},
+                    {value:120,name:'加军',itemStyle:{color:ORANGE}},
+                    {value:80,name:'叛军',itemStyle:{color:'#78909c'}},
+                    {value:60,name:'民兵',itemStyle:{color:'#8d6e63'}}
+                ]
+            }]
+        });
+
+        // 8. Squad月度对局+胜率
+        echarts.init(document.getElementById('sqMonthly')).setOption({
+            backgroundColor:BG, tooltip:{trigger:'axis',...TIP},
+            legend:{data:['对局数','胜率'],textStyle:{color:'#8a95a5',fontSize:12},bottom:5,itemWidth:14,itemHeight:10},
+            grid:{left:50,right:50,top:20,bottom:50},
+            xAxis:{type:'category',data:['7月','8月','9月','10月','11月','12月'],axisLabel:AL,axisLine:AX},
+            yAxis:[
+                {type:'value',name:'对局数',nameTextStyle:{color:'#5a6470'},axisLabel:AL,splitLine:SP},
+                {type:'value',name:'胜率(%)',nameTextStyle:{color:'#5a6470'},axisLabel:{...AL,formatter:'{value}%'},splitLine:{show:false},max:70}
+            ],
+            series:[
+                {name:'对局数',type:'bar',data:[45,52,60,55,68,72],itemStyle:{color:G(BLUE,'#0277bd'),borderRadius:[2,2,0,0]},barWidth:'35%'},
+                {name:'胜率',type:'line',yAxisIndex:1,data:[52,55,58,54,60,62],smooth:true,lineStyle:{color:GOLD,width:3},itemStyle:{color:GOLD},symbol:'circle',symbolSize:8,label:{show:true,position:'top',color:GOLD,fontSize:12,fontFamily:'Rajdhani',fontWeight:700,formatter:'{c}%'}}
+            ]
+        });
+
+        // 9. Squad能力雷达
+        echarts.init(document.getElementById('sqRadar')).setOption({
+            backgroundColor:BG, tooltip:{...TIP},
+            legend:{data:['指挥官能力','步兵能力','载具能力'],textStyle:{color:'#8a95a5',fontSize:12},bottom:5,itemWidth:14,itemHeight:10},
+            radar:{indicator:[{name:'指挥决策',max:100},{name:'战术规划',max:100},{name:'射击精度',max:100},{name:'医疗救援',max:100},{name:'载具驾驶',max:100},{name:'工事修筑',max:100}],center:['50%','48%'],radius:'60%',axisName:{color:'#5a6470',fontSize:11},splitArea:{areaStyle:{color:['#111418','#14171c','#111418','#14171c','#111418']}},splitLine:{lineStyle:{color:'#2a2d33'}},axisLine:{lineStyle:{color:'#2a2d33'}}},
+            series:[{type:'radar',data:[
+                {value:[95,90,70,65,80,75],name:'指挥官能力',lineStyle:{color:RED,width:2},itemStyle:{color:RED},areaStyle:{opacity:0.12}},
+                {value:[60,65,88,85,60,70],name:'步兵能力',lineStyle:{color:GOLD,width:2},itemStyle:{color:GOLD},areaStyle:{opacity:0.12}},
+                {value:[55,70,75,50,92,60],name:'载具能力',lineStyle:{color:BLUE,width:2},itemStyle:{color:BLUE},areaStyle:{opacity:0.12}}
+            ]}]
+        });
+
+        // 10. 散点图
+        echarts.init(document.getElementById('scatterChart')).setOption({
+            backgroundColor:BG,
+            tooltip:{formatter:function(p){return '<strong>'+p.data[2]+'</strong><br/>K/D: '+p.value[0]+'<br/>评分: '+p.value[1];},...TIP},
+            grid:{left:60,right:30,top:30,bottom:50},
+            xAxis:{type:'value',name:'K/D 比',nameTextStyle:{color:'#5a6470'},axisLabel:AL,splitLine:SP},
+            yAxis:{type:'value',name:'综合评分',nameTextStyle:{color:'#5a6470'},axisLabel:AL,splitLine:SP,max:100},
+            series:[{type:'scatter',symbolSize:function(d){return Math.max(12,d[1]/4);},
+                data:[
+                    [3.2,92,'F-16C'],[2.8,88,'豹2A7V'],[2.5,85,'Su-27SM'],
+                    [2.3,86,'T-80BVM'],[2.1,83,'ZTZ99A'],[1.9,80,'M1A2'],
+                    [1.8,78,'MiG-29'],[1.6,76,'挑战者2F'],
+                    [1.5,95,'Squad指挥官'],[1.2,88,'Squad医疗兵'],
+                    [2.0,82,'Squad机枪手'],[0.9,90,'Squad队长'],
+                    [1.8,75,'Squad工兵'],[1.1,85,'Squad反坦克']
+                ],
+                label:{show:true,formatter:function(p){return p.data[2];},position:'top',color:'#8a95a5',fontSize:10,fontFamily:'Rajdhani',fontWeight:600},
+                itemStyle:{color:function(p){return p.data[2].indexOf('Squad')>=0?GOLD:RED;},shadowBlur:8,shadowColor:'rgba(212,168,67,0.2)'}
+            }]
+        });
+
+        // 响应式
+        var allCharts=['wtWinRate','wtOnline','wtVehicleType','wtRadar','wtKillsTrend','sqRoles','sqFaction','sqMonthly','sqRadar','scatterChart'];
+        window.addEventListener('resize',function(){
+            allCharts.forEach(function(id){var d=document.getElementById(id);if(d){var c=echarts.getInstanceByDom(d);if(c)c.resize();}});
+        });
+
+        // 登录状态
+        (function(){
+            var u=localStorage.getItem('band_user');
+            if(u){var d=JSON.parse(u);document.getElementById('navLoginBtn').style.display='none';document.getElementById('navRegBtn').style.display='none';document.getElementById('navUserMenu').style.display='';document.getElementById('navUsername').textContent=d.username;}
+            var lb=document.getElementById('btnLogout');if(lb){lb.addEventListener('click',function(e){e.preventDefault();localStorage.removeItem('band_user');window.location.reload();});}
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <title>WarZone Hub — 战争雷霆 &amp; 战术小队</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+    <!-- ==================== 导航栏 ==================== -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainNav">
+                    <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><i class="fa fa-crosshairs"></i> WarZoo Hub</a>
+            </div>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html"><i class="fa fa-home"></i> 首页</a></li>
+                    <li><a href="charts.html"><i class="fa fa-bar-chart"></i> 战绩数据</a></li>
+                    <li><a href="about.html"><i class="fa fa-user"></i> 关于我</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right" id="navUserArea">
+                    <li id="navLoginBtn"><a href="login.html"><i class="fa fa-sign-in"></i> 登录</a></li>
+                    <li id="navRegBtn"><a href="login.html#register"><i class="fa fa-user-plus"></i> 注册</a></li>
+                    <li class="dropdown" id="navUserMenu" style="display:none;">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <span class="navbar-user"><img src="img/avatar.png" id="navAvatar" /><span id="navUsername">指挥官</span></span>
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="about.html"><i class="fa fa-user"></i> 个人中心</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#" id="btnLogout"><i class="fa fa-sign-out"></i> 退出登录</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== 巨幕 ==================== -->
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h1><i class="fa fa-crosshairs"></i> WarZoo Hub</h1>
+            <p class="lead">战争雷霆 × 战术小队 — 硬核军事游戏双雄攻略站</p>
+            <p>从万米高空的喷气空战到百人步兵的协同推进，这里是你成为王牌指挥官的最佳起点。</p>
+            <p>
+                <a class="btn btn-primary btn-lg" href="#wt" role="button"><i class="fa fa-fighter-jet"></i> 战争雷霆</a>
+                <a class="btn btn-default btn-lg" href="#squad" role="button"><i class="fa fa-users"></i> 战术小队</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- ==================== 轮播 ==================== -->
+    <div class="container" id="gallery">
+        <div class="section-title">
+            <h3><i class="fa fa-camera"></i> 战场精选</h3>
+            <p>来自战争雷霆与战术小队的精彩画面</p>
+        </div>
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <img src="img/zzltzp/2560x1440_ninth_wave_logo_eng_9a042924b312213bf37bd1e0e8c05a4f.jpg" alt="战争雷霆空战" />
+                    <div class="carousel-caption">
+                        <h3><i class="fa fa-fighter-jet"></i> 战争雷霆 — 喷气时代的空战对决</h3>
+                        <p>驾驶J-10、J-15T等经典战机，在万米高空展开超视距与近距格斗</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="img/squad/f698094f81f28e8687ebb90aa45b7df7.jpg" alt="战术小队" />
+                    <div class="carousel-caption">
+                        <h3><i class="fa fa-users"></i> 战术小队 — 50v50大规模协同作战</h3>
+                        <p>建设前沿基地、呼叫火力支援、执行侧翼包抄，体验真实的步兵战术</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="img/zzltzp/3840x2160_air_superiority_vt_4b_logo_a7adeef1601caa33e09c4063eb4d54fc.jpg" alt="陆战" />
+                    <div class="carousel-caption">
+                        <h3><i class="fa fa-shield"></i> 战争雷霆 — 钢铁洪流的地面交锋</h3>
+                        <p>操控ZTZ-99A、M1A2、T-80BVM等主战坦克，在复杂地形中展开装甲对决</p>
+                    </div>
+                </div>
+            </div>
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- ==================== 图标分类 ==================== -->
+        <div class="section-title">
+            <h3><i class="fa fa-th-large"></i> 战斗分类</h3>
+            <p>两大核心游戏的战斗维度</p>
+        </div>
+        <div class="row text-center">
+            <div class="col-xs-4 col-sm-2"><div class="icon-demo"><i class="fa fa-fighter-jet"></i><p>空战</p></div></div>
+            <div class="col-xs-4 col-sm-2"><div class="icon-demo"><i class="fa fa-shield"></i><p>陆战</p></div></div>
+            <div class="col-xs-4 col-sm-2"><div class="icon-demo"><i class="fa fa-anchor"></i><p>海战</p></div></div>
+            <div class="col-xs-4 col-sm-2"><div class="icon-demo"><i class="fa fa-users"></i><p>步兵</p></div></div>
+            <div class="col-xs-4 col-sm-2"><div class="icon-demo"><i class="fa fa-truck"></i><p>载具</p></div></div>
+            <div class="col-xs-4 col-sm-2"><div class="icon-demo"><i class="fa fa-bullseye"></i><p>战术</p></div></div>
+        </div>
+
+        <!-- ==================== 战争雷霆 — 面板 ==================== -->
+        <div class="section-title" id="wt">
+            <h3><i class="fa fa-fighter-jet"></i> 战争雷霆</h3>
+            <p>Gaijin Entertainment — 载具对战巅峰之作</p>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="panel panel-danger">
+                    <div class="panel-heading text-center">
+                        <i class="fa fa-fighter-jet"></i> <strong>空战</strong>
+                        <span class="game-score">9.2</span>
+                    </div>
+                    <div class="panel-body text-center">
+                        <a href="#wt1" data-toggle="collapse">
+                            <img src="img/zzltzp/! Screenshots_AgNGS7TEFJo_bf6c4cf673bf561303dcc641805381b4.jpg" class="img-responsive center-block game-cover" style="cursor:pointer;" />
+                        </a>
+                        <div id="wt1" class="collapse" style="margin-top:15px;text-align:left;">
+                            <p><span class="game-tag tag-military">军事</span> <span class="game-tag tag-sim">模拟</span> <span class="game-tag tag-combat">空战</span></p>
+                            <p><i class="fa fa-plane"></i> <strong>载具线：</strong>涵盖从双翼机到四代喷气机的完整科技树</p>
+                            <p><i class="fa fa-globe"></i> <strong>国家：</strong>美、苏、德、英、日、中、法、意、瑞典、以色列</p>
+                            <p>从二战螺旋桨缠斗到现代超视距空战，真实气动模型与弹道物理还原每一架传奇战机的飞行特性。雷达、红外弹、反制措施一应俱全。</p>
+                        </div>
+                    </div>
+                    <div class="panel-footer text-center">
+                        <small><i class="fa fa-quote-left"></i> 天空属于王牌飞行员 <i class="fa fa-quote-right"></i></small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="panel panel-primary">
+                    <div class="panel-heading text-center">
+                        <i class="fa fa-shield"></i> <strong>陆战</strong>
+                        <span class="game-score">9.4</span>
+                    </div>
+                    <div class="panel-body text-center">
+                        <a href="#wt2" data-toggle="collapse">
+                            <img src="img/zzltzp/! Screenshots_45_24d9739dab1b68af05e91b57a4bf01b3.png" class="img-responsive center-block game-cover" style="cursor:pointer;" />
+                        </a>
+                        <div id="wt2" class="collapse" style="margin-top:15px;text-align:left;">
+                            <p><span class="game-tag tag-military">军事</span> <span class="game-tag tag-vehicle">载具</span> <span class="game-tag tag-combat">坦克</span></p>
+                            <p><i class="fa fa-trophy"></i> <strong>特色：</strong>弱点机制、弹种选择、装甲倾斜角真实计算</p>
+                            <p><i class="fa fa-crosshairs"></i> <strong>模式：</strong>街机/现实/全真三种操控难度</p>
+                            <p>操控M1A2 SEP、豹2A7V、T-80BVM、99A等主战坦克在复杂地形中展开装甲对决。精准的弱点打击与战术走位决定胜负。</p>
+                        </div>
+                    </div>
+                    <div class="panel-footer text-center">
+                        <small><i class="fa fa-quote-left"></i> 装甲洪流一击致命 <i class="fa fa-quote-right"></i></small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="panel panel-info">
+                    <div class="panel-heading text-center">
+                        <i class="fa fa-anchor"></i> <strong>海战</strong>
+                        <span class="game-score">8.5</span>
+                    </div>
+                    <div class="panel-body text-center">
+                        <a href="#wt3" data-toggle="collapse">
+                            <img src="img/zzltzp/! Screenshots_Yubari_(7)_3bbf0c0844b7da1c38b2750d63a009a0.jpg" class="img-responsive center-block game-cover" style="cursor:pointer;" />
+                        </a>
+                        <div id="wt3" class="collapse" style="margin-top:15px;text-align:left;">
+                            <p><span class="game-tag tag-military">军事</span> <span class="game-tag tag-vehicle">舰艇</span> <span class="game-tag tag-combat">海战</span></p>
+                            <p><i class="fa fa-ship"></i> <strong>载具：</strong>从鱼雷艇到战列舰，涵盖各型水面舰艇</p>
+                            <p><i class="fa fa-bomb"></i> <strong>火力：</strong>主炮、副炮、防空炮、鱼雷多层火力体系</p>
+                            <p>指挥驱逐舰、巡洋舰乃至战列舰展开海上炮战。弹道计算、装甲带分布、损管管理考验每一个舰长的决策能力。</p>
+                        </div>
+                    </div>
+                    <div class="panel-footer text-center">
+                        <small><i class="fa fa-quote-left"></i> 大洋深处的钢铁巨兽 <i class="fa fa-quote-right"></i></small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== 战术小队 — 面板 ==================== -->
+        <div class="section-title" id="squad">
+            <h3><i class="fa fa-users"></i> 战术小队</h3>
+            <p>Offworld Industries — 50v50硬核军事射击</p>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="panel panel-success">
+                    <div class="panel-heading text-center">
+                        <i class="fa fa-users"></i> <strong>步兵协同</strong>
+                        <span class="game-score">9.3</span>
+                    </div>
+                    <div class="panel-body text-center">
+                        <a href="#sq1" data-toggle="collapse">
+                            <img src="img/squad/ss_6cda3e8d662cee6df174e7b9d1a784cc5dad061f.1920x1080.jpg" class="img-responsive center-block game-cover" style="cursor:pointer;" />
+                        </a>
+                        <div id="sq1" class="collapse" style="margin-top:15px;text-align:left;">
+                            <p><span class="game-tag tag-tactical">战术</span> <span class="game-tag tag-fps">FPS</span> <span class="game-tag tag-combat">多人</span></p>
+                            <p><i class="fa fa-star"></i> <strong>兵种：</strong>步枪兵、机枪手、医疗兵、工兵、射手等9大兵种</p>
+                            <p><i class="fa fa-microphone"></i> <strong>通讯：</strong>小队语音 + 指挥频道双层通讯体系</p>
+                            <p>9人小队是基本战术单位，队长负责部署 Rally Point 与作战计划。配合默契的小队能以少胜多扭转战局。</p>
+                        </div>
+                    </div>
+                    <div class="panel-footer text-center">
+                        <small><i class="fa fa-quote-left"></i> 团队就是一切 <i class="fa fa-quote-right"></i></small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="panel panel-warning">
+                    <div class="panel-heading text-center">
+                        <i class="fa fa-truck"></i> <strong>载具与后勤</strong>
+                        <span class="game-score">9.0</span>
+                    </div>
+                    <div class="panel-body text-center">
+                        <a href="#sq2" data-toggle="collapse">
+                            <img src="img/squad/99010a70745e2f2dfef7c604bb6254f4.jpg" class="img-responsive center-block game-cover" style="cursor:pointer;" />
+                        </a>
+                        <div id="sq2" class="collapse" style="margin-top:15px;text-align:left;">
+                            <p><span class="game-tag tag-tactical">战术</span> <span class="game-tag tag-vehicle">载具</span> <span class="game-tag tag-military">后勤</span></p>
+                            <p><i class="fa fa-cogs"></i> <strong>载具：</strong>悍马、BTR、布莱德利、T-72等数十种真实载具</p>
+                            <p><i class="fa fa-wrench"></i> <strong>工兵：</strong>修建防御工事、FOB、火力点</p>
+                            <p>载具需要车组配合驾驶与射击，弹药补给线的建立与维护是制胜的关键。后勤保障决定战斗持续力。</p>
+                        </div>
+                    </div>
+                    <div class="panel-footer text-center">
+                        <small><i class="fa fa-quote-left"></i> 补给线就是生命线 <i class="fa fa-quote-right"></i></small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center">
+                        <i class="fa fa-map-o"></i> <strong>指挥与战术</strong>
+                        <span class="game-score">9.5</span>
+                    </div>
+                    <div class="panel-body text-center">
+                        <a href="#sq3" data-toggle="collapse">
+                            <img src="img/squad/57dd549fa73bc05be9c12fbd797231de.jpg" class="img-responsive center-block game-cover" style="cursor:pointer;" />
+                        </a>
+                        <div id="sq3" class="collapse" style="margin-top:15px;text-align:left;">
+                            <p><span class="game-tag tag-tactical">战术</span> <span class="game-tag tag-military">指挥</span> <span class="game-tag tag-sim">策略</span></p>
+                            <p><i class="fa fa-flag"></i> <strong>指挥官：</strong>全局视野，协调各小队执行战术目标</p>
+                            <p><i class="fa fa-bomb"></i> <strong>支援：</strong>炮击、空袭、无人机侦察等战略级支援</p>
+                            <p>指挥官负责全局策略，通过地图标记和指挥频道调度全队。一次精准的炮击或侧翼突破能改变整场战斗走向。</p>
+                        </div>
+                    </div>
+                    <div class="panel-footer text-center">
+                        <small><i class="fa fa-quote-left"></i> 运筹帷幄决胜千里 <i class="fa fa-quote-right"></i></small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== 媒体 ==================== -->
+        <div class="section-title">
+            <h3><i class="fa fa-newspaper-o"></i> 前线快报</h3>
+            <p>最新游戏资讯与版本更新</p>
+        </div>
+        <div class="media">
+            <div class="media-left"><a href="#"><img class="media-object" src="img/zzltzp/2560x1440_wt_sound_ground_forces_volume_2_log4575693074722527712_5f815558e5cd5f337ca9addc3c1a382b.jpg" /></a></div>
+            <div class="media-body">
+                <h4 class="media-heading"><i class="fa fa-bullhorn"></i> 战争雷霆「暴风前夕」大版本更新</h4>
+                <p>新增瑞典空军支线、全新陆战地图「红沙」、改进版热成像系统及多款现代载具加入。空战引入全新的BVR（超视距）导弹机制，让四代机空战更具深度。</p>
+                <p class="text-muted"><small><i class="fa fa-clock-o"></i> 2025年1月 &nbsp; <i class="fa fa-tag"></i> 版本更新</small></p>
+            </div>
+        </div>
+        <div class="media">
+            <div class="media-body">
+                <h4 class="media-heading"><i class="fa fa-bullhorn"></i> 战术小队 V7.0 更新：引入全新阵营PLA</h4>
+                <p>战术小队最新大版本正式加入中国人民解放军阵营，配备99A主战坦克、ZBD-04A步战车、直-9A等标志性装备。同步新增两张中国主题地图。</p>
+                <p class="text-muted"><small><i class="fa fa-clock-o"></i> 2024年12月 &nbsp; <i class="fa fa-tag"></i> 阵营更新</small></p>
+            </div>
+            <div class="media-right"><a href="#"><img class="media-object" src="img/squad/4ff00127319e73b9afe1891a5c3c638b.jpg" /></a></div>
+        </div>
+
+        <!-- ==================== 进度条 ==================== -->
+        <div class="section-title">
+            <h3><i class="fa fa-tasks"></i> 科技树进度</h3>
+            <p>主要国家科技树解锁进度</p>
+        </div>
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+                <p><strong><i class="fa fa-flag-usa"></i> 美国 — 陆战科技树</strong></p>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-danger progress-bar-striped active" style="width:88%;">88% — M1A2 SEPv2</div>
+                </div>
+                <p><strong><i class="fa fa-flag"></i> 苏联/俄罗斯 — 陆战科技树</strong></p>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-warning progress-bar-striped active" style="width:92%;">92% — T-80BVM</div>
+                </div>
+                <p><strong><i class="fa fa-flag"></i> 德国 — 空战科技树</strong></p>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-info progress-bar-striped active" style="width:75%;">75% — MiG-29G</div>
+                </div>
+                <p><strong><i class="fa fa-flag"></i> 中国 — 陆战科技树</strong></p>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-success progress-bar-striped active" style="width:95%;">95% — VT4A1</div>
+                </div>
+                <p><strong><i class="fa fa-gamepad"></i> 综合游戏时长分布</strong></p>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped active" style="width:45%;min-width:5em;background-color:#c0392b;">战争雷霆 45%</div>
+                    <div class="progress-bar progress-bar-info progress-bar-striped active" style="width:35%;">战术小队 35%</div>
+                    <div class="progress-bar progress-bar-warning progress-bar-striped" style="width:20%;">其他 20%</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== 折叠面板 ==================== -->
+        <div class="section-title">
+            <h3><i class="fa fa-question-circle"></i> 新兵FAQ</h3>
+            <p>常见问题解答</p>
+        </div>
+        <div class="col-sm-8 col-sm-offset-2" style="margin-bottom:30px;">
+            <div class="panel-group" id="faq">
+                <div class="panel panel-default">
+                    <div class="panel-heading"><h4 class="panel-title"><a data-toggle="collapse" data-parent="#faq" href="#faq1"><i class="fa fa-plus-circle"></i> 战争雷霆和战争雷霆有什么区别？应该先玩哪个？</a></h4></div>
+                    <div id="faq1" class="panel-collapse collapse in"><div class="panel-body">战争雷霆主打载具对战（飞机/坦克/舰船），上手门槛较高但体验极佳；战术小队主打50v50步兵协同，强调语音沟通与战术配合。喜欢载具选前者，喜欢团队步战选后者。</div></div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading"><h4 class="panel-title"><a data-toggle="collapse" data-parent="#faq" href="#faq2"><i class="fa fa-plus-circle"></i> 战争雷霆氪金严重吗？</a></h4></div>
+                    <div id="faq2" class="panel-collapse collapse"><div class="panel-body">战争雷霆的免费体验已经非常完整，氪金主要加速科技树解锁。高级账号和高级载具可以加快进度，但不买也完全可以慢慢体验，不影响对战平衡。</div></div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading"><h4 class="panel-title"><a data-toggle="collapse" data-parent="#faq" href="#faq3"><i class="fa fa-plus-circle"></i> 战术小队必须要开麦吗？</a></h4></div>
+                    <div id="faq3" class="panel-collapse collapse"><div class="panel-body">强烈建议开麦。战术小队的核心体验就是语音协同，队长需要指挥、小队需要配合。不开麦虽然能玩，但体验会大打折扣，而且部分服务器可能要求必须有麦克风。</div></div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading"><h4 class="panel-title"><a data-toggle="collapse" data-parent="#faq" href="#faq4"><i class="fa fa-plus-circle"></i> 推荐什么配置？</a></h4></div>
+                    <div id="faq4" class="panel-collapse collapse"><div class="panel-body">战争雷霆优化较好，GTX1060即可流畅运行；战术小队对CPU和内存要求较高，建议i5-12400/R5-3600以上+16GB内存+GTX3060以上。两者均建议SSD安装以减少加载时间。</div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== 表单 ==================== -->
+        <div class="section-title">
+            <h3><i class="fa fa-pencil-square-o"></i> 战队招募</h3>
+            <p>加入我们或提交战场情报</p>
+        </div>
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+                <div class="form-section">
+                    <h4><i class="fa fa-paper-plane"></i> 提交入队申请</h4>
+                    <form role="form">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label><i class="fa fa-user"></i> 游戏ID</label>
+                                    <input type="text" class="form-control" placeholder="你的游戏昵称" />
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label><i class="fa fa-envelope"></i> 联系邮箱</label>
+                                    <input type="email" class="form-control" placeholder="用于接收通知" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fa fa-tag"></i> 申请类型</label>
+                            <select class="form-control">
+                                <option>请选择</option>
+                                <option>加入战争雷霆战队</option>
+                                <option>加入战术小队战队</option>
+                                <option>战术指导/带队</option>
+                                <option>Bug反馈</option>
+                                <option>合作洽谈</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fa fa-comment"></i> 自我介绍</label>
+                            <textarea class="form-control" rows="5" placeholder="介绍你的游戏经验、擅长位置/载具、在线时间等..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fa fa-gamepad"></i> 你擅长的游戏（可多选）</label><br />
+                            <label class="checkbox-inline"><input type="checkbox" /> 战争雷霆-空战</label>
+                            <label class="checkbox-inline"><input type="checkbox" /> 战争雷霆-陆战</label>
+                            <label class="checkbox-inline"><input type="checkbox" /> 战争雷霆-海战</label>
+                            <label class="checkbox-inline"><input type="checkbox" /> 战术小队</label>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fa fa-star"></i> 你的特长</label><br />
+                            <label class="radio-inline"><input type="radio" name="role" /> 指挥官/队长</label>
+                            <label class="radio-inline"><input type="radio" name="role" /> 突击手</label>
+                            <label class="radio-inline"><input type="radio" name="role" /> 狙击手/射手</label>
+                            <label class="radio-inline"><input type="radio" name="role" /> 载具驾驶员</label>
+                            <label class="radio-inline"><input type="radio" name="role" /> 医疗兵/支援</label>
+                        </div>
+                        <div class="form-group">
+                            <label class="checkbox"><input type="checkbox" /> 我已阅读并同意《战队守则》</label>
+                        </div>
+                        <div class="text-right">
+                            <button type="reset" class="btn btn-default"><i class="fa fa-eraser"></i> 重置</button>
+                            <button type="button" class="btn btn-primary"><i class="fa fa-paper-plane"></i> 提交申请</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== 表格 ==================== -->
+        <div class="section-title">
+            <h3><i class="fa fa-calendar-check-o"></i> 赛事日程</h3>
+            <p>近期赛事与活动</p>
+        </div>
+        <div class="table-section">
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th><i class="fa fa-calendar"></i> 日期</th>
+                            <th><i class="fa fa-gamepad"></i> 游戏</th>
+                            <th><i class="fa fa-trophy"></i> 赛事名称</th>
+                            <th><i class="fa fa-users"></i> 规模</th>
+                            <th><i class="fa fa-globe"></i> 区域</th>
+                            <th><i class="fa fa-info-circle"></i> 状态</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>2025-02-15</td>
+                            <td>战争雷霆</td>
+                            <td>Thunder League S5 全球总决赛</td>
+                            <td>64队</td>
+                            <td>全球</td>
+                            <td><span class="label label-warning">报名中</span></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>2025-03-01</td>
+                            <td>战术小队</td>
+                            <td>Squad Champions League 冬季赛</td>
+                            <td>32队</td>
+                            <td>欧美</td>
+                            <td><span class="label label-primary">即将开赛</span></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>2025-01-20</td>
+                            <td>战争雷霆</td>
+                            <td>中国区陆战邀请赛</td>
+                            <td>16队</td>
+                            <td>中国</td>
+                            <td><span class="label label-success">进行中</span></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>2025-02-28</td>
+                            <td>战术小队</td>
+                            <td>亚太步兵对抗赛</td>
+                            <td>24队</td>
+                            <td>亚太</td>
+                            <td><span class="label label-default">筹备中</span></td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>2025-04-10</td>
+                            <td>战争雷霆</td>
+                            <td>空战精英挑战赛</td>
+                            <td>128人</td>
+                            <td>全球</td>
+                            <td><span class="label label-default">待定</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ==================== 列表组 ==================== -->
+        <div class="section-title">
+            <h3><i class="fa fa-list-ol"></i> 社区推荐载具 TOP10</h3>
+            <p>玩家投票最受欢迎的载具</p>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+                <div class="list-group">
+                    <a href="#" class="list-group-item active"><i class="fa fa-fighter-jet"></i> 1. F-16C（美系）— 空战之王 <span class="badge">票数 9,820</span></a>
+                    <a href="#" class="list-group-item"><i class="fa fa-shield"></i> 2. 豹2A7V（德系）— 最强MBT <span class="badge">票数 8,650</span></a>
+                    <a href="#" class="list-group-item"><i class="fa fa-fighter-jet"></i> 3. Su-27SM（苏系）— 空战猛兽 <span class="badge">票数 8,100</span></a>
+                    <a href="#" class="list-group-item"><i class="fa fa-shield"></i> 4. T-80BVM（苏系）— 钢铁洪流 <span class="badge">票数 7,500</span></a>
+                    <a href="#" class="list-group-item"><i class="fa fa-shield"></i> 5. 99A（中系）— 东方铁甲 <span class="badge">票数 7,200</span></a>
+                    <a href="#" class="list-group-item"><i class="fa fa-fighter-jet"></i> 6. J-11B（中系）— 侧卫中国版 <span class="badge">票数 6,800</span></a>
+                    <a href="#" class="list-group-item"><i class="fa fa-shield"></i> 7. M1A2 SEPv2（美系）— 艾布拉姆斯 <span class="badge">票数 6,500</span></a>
+                    <a href="#" class="list-group-item"><i class="fa fa-fighter-jet"></i> 8. MiG-29（苏系）— 支点 <span class="badge">票数 5,900</span></a>
+                    <a href="#" class="list-group-item"><i class="fa fa-shield"></i> 9. 挑战者2F（英系）— 最强装甲 <span class="badge">票数 5,200</span></a>
+                    <a href="#" class="list-group-item"><i class="fa fa-anchor"></i> 10. 萨凡纳号（海战）— 钢铁巨兽 <span class="badge">票数 4,800</span></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ==================== 模态框 ==================== -->
+    <div class="modal fade" id="contact" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                    <h4 class="modal-title"><i class="fa fa-envelope"></i> 联系指挥所</h4>
+                </div>
+                <div class="modal-body">
+                    <p><i class="fa fa-envelope-o"></i> 邮箱：command@warzonehub.com</p>
+                    <p><i class="fa fa-weixin"></i> 微信：WarZoneHub_Leader</p>
+                    <p><i class="fa fa-qq"></i> QQ群：888666333</p>
+                    <p><i class="fa fa-steam"></i> Steam群组：WarZone Hub</p>
+                    <p><i class="fa fa-discord"></i> Discord：discord.gg/warzonehub</p>
+                    <hr />
+                    <p class="text-muted"><small>欢迎战队合作、赛事协办、攻略投稿。</small></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> 关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== 页脚 ==================== -->
+    <div class="footer">
+        <div class="container">
+            <p>
+                <a href="#"><i class="fa fa-steam"></i></a>
+                <a href="#"><i class="fa fa-discord"></i></a>
+                <a href="#"><i class="fa fa-bilibili"></i></a>
+                <a href="#"><i class="fa fa-youtube-play"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+            </p>
+            <p>&copy; 2025 WarZoo Hub &nbsp;|&nbsp;
+                <a href="index.html">首页</a> &nbsp;|&nbsp;
+                <a href="charts.html">战绩数据</a> &nbsp;|&nbsp;
+                <a href="about.html">关于我</a> &nbsp;|&nbsp;
+                <a href="login.html">登录</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <script>
+        (function(){
+            var u=localStorage.getItem('band_user');
+            if(u){var d=JSON.parse(u);document.getElementById('navLoginBtn').style.display='none';document.getElementById('navRegBtn').style.display='none';document.getElementById('navUserMenu').style.display='';document.getElementById('navUsername').textContent=d.username;}
+            var lb=document.getElementById('btnLogout');if(lb){lb.addEventListener('click',function(e){e.preventDefault();localStorage.removeItem('band_user');window.location.reload();});}
+        })();
+    </script>
+</body>
+</html>

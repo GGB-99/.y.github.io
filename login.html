@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <title>GameHub - 登录</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+    <!-- ==================== 简化导航栏 ==================== -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#loginNav">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><i class="fa fa-gamepad"></i> GameHub</a>
+            </div>
+            <div class="collapse navbar-collapse" id="loginNav">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html"><i class="fa fa-home"></i> 首页</a></li>
+                    <li><a href="charts.html"><i class="fa fa-bar-chart"></i> 游戏数据</a></li>
+                    <li><a href="about.html"><i class="fa fa-user"></i> 关于我</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== 登录/注册主体 ==================== -->
+    <div class="container login-wrapper">
+        <div class="login-card">
+            <div class="row" style="margin:0;">
+                <!-- 左侧品牌区 -->
+                <div class="col-sm-5 login-left">
+                    <i class="fa fa-gamepad"></i>
+                    <h2>GameHub</h2>
+                    <p>精选全球热门游戏<br />为每一位玩家推荐最值得体验的佳作</p>
+                    <br />
+                    <p><small><i class="fa fa-quote-left"></i> 游戏是第九艺术 <i class="fa fa-quote-right"></i></small></p>
+                </div>
+                <!-- 右侧表单区 -->
+                <div class="col-sm-7 login-right">
+                    <!-- 选项卡 -->
+                    <div class="login-tabs">
+                        <button class="tab-btn active" id="tabLogin">
+                            <i class="fa fa-sign-in"></i> 登录
+                        </button>
+                        <button class="tab-btn" id="tabRegister">
+                            <i class="fa fa-user-plus"></i> 注册
+                        </button>
+                    </div>
+
+                    <!-- 提示信息 -->
+                    <div class="alert alert-danger login-alert" id="loginError"></div>
+                    <div class="alert alert-success login-alert" id="loginSuccess"></div>
+
+                    <!-- ====== 登录面板 ====== -->
+                    <div class="login-panel active" id="panelLogin">
+                        <form id="formLogin">
+                            <div class="form-group">
+                                <div class="input-icon">
+                                    <input type="text" class="form-control" id="loginUsername" placeholder="请输入用户名" required />
+                                    <i class="fa fa-user"></i>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-icon">
+                                    <input type="password" class="form-control" id="loginPassword" placeholder="请输入密码" required />
+                                    <i class="fa fa-lock"></i>
+                                </div>
+                            </div>
+                            <div class="login-options">
+                                <label class="checkbox" style="margin:0;color:#607d8b;">
+                                    <input type="checkbox" id="rememberMe" /> 记住我
+                                </label>
+                                <a href="#" id="forgotPwd">忘记密码？</a>
+                            </div>
+                            <button type="submit" class="btn btn-login"><i class="fa fa-sign-in"></i> 登 录</button>
+                        </form>
+                        <div class="social-login">
+                            <p>—— 其他方式登录 ——</p>
+                            <a href="#"><i class="fa fa-steam" title="Steam登录"></i></a>
+                            <a href="#"><i class="fa fa-weixin" title="微信登录"></i></a>
+                            <a href="#"><i class="fa fa-qq" title="QQ登录"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- ====== 注册面板 ====== -->
+                    <div class="login-panel" id="panelRegister">
+                        <form id="formRegister">
+                            <div class="form-group">
+                                <div class="input-icon">
+                                    <input type="text" class="form-control" id="regUsername" placeholder="请设置玩家昵称（3-16位）" required />
+                                    <i class="fa fa-user"></i>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-icon">
+                                    <input type="email" class="form-control" id="regEmail" placeholder="请输入邮箱" required />
+                                    <i class="fa fa-envelope"></i>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-icon">
+                                    <input type="password" class="form-control" id="regPassword" placeholder="请设置密码（6位以上）" required />
+                                    <i class="fa fa-lock"></i>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-icon">
+                                    <input type="password" class="form-control" id="regPassword2" placeholder="请再次输入密码" required />
+                                    <i class="fa fa-lock"></i>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox" style="color:#607d8b;">
+                                    <input type="checkbox" id="agreeTerms" /> 我已阅读并同意《用户服务协议》和《隐私政策》
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-login"><i class="fa fa-user-plus"></i> 注 册</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== 页脚 ==================== -->
+    <div class="footer" style="margin-top:0;">
+        <div class="container">
+            <p>&copy; 2024 GameHub 游戏推荐 &nbsp;|&nbsp;
+                <a href="index.html">首页</a> &nbsp;|&nbsp;
+                <a href="charts.html">游戏数据</a> &nbsp;|&nbsp;
+                <a href="about.html">关于我</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <script>
+        (function() {
+            // 已登录则跳转
+            var user = localStorage.getItem('band_user');
+            if (user) {
+                window.location.href = 'index.html';
+                return;
+            }
+
+            var tabLogin = document.getElementById('tabLogin');
+            var tabReg = document.getElementById('tabRegister');
+            var panelLogin = document.getElementById('panelLogin');
+            var panelReg = document.getElementById('panelRegister');
+            var alertError = document.getElementById('loginError');
+            var alertSuccess = document.getElementById('loginSuccess');
+
+            function showAlert(el, msg) {
+                el.textContent = msg;
+                el.style.display = 'block';
+            }
+
+            function hideAlerts() {
+                alertError.style.display = 'none';
+                alertSuccess.style.display = 'none';
+            }
+
+            function switchToLogin() {
+                tabLogin.className = 'tab-btn active';
+                tabReg.className = 'tab-btn';
+                panelLogin.className = 'login-panel active';
+                panelReg.className = 'login-panel';
+                hideAlerts();
+            }
+
+            function switchToRegister() {
+                tabLogin.className = 'tab-btn';
+                tabReg.className = 'tab-btn active';
+                panelLogin.className = 'login-panel';
+                panelReg.className = 'login-panel active';
+                hideAlerts();
+            }
+
+            tabLogin.addEventListener('click', switchToLogin);
+            tabReg.addEventListener('click', switchToRegister);
+
+            if (window.location.hash === '#register') {
+                switchToRegister();
+            }
+
+            // 注册
+            document.getElementById('formRegister').addEventListener('submit', function(e) {
+                e.preventDefault();
+                hideAlerts();
+
+                var username = document.getElementById('regUsername').value.trim();
+                var email = document.getElementById('regEmail').value.trim();
+                var pwd = document.getElementById('regPassword').value;
+                var pwd2 = document.getElementById('regPassword2').value;
+                var agree = document.getElementById('agreeTerms').checked;
+
+                if (username.length < 3 || username.length > 16) {
+                    showAlert(alertError, '昵称长度需为3-16位');
+                    return;
+                }
+                if (!email || email.indexOf('@') === -1) {
+                    showAlert(alertError, '请输入有效的邮箱地址');
+                    return;
+                }
+                if (pwd.length < 6) {
+                    showAlert(alertError, '密码长度不能少于6位');
+                    return;
+                }
+                if (pwd !== pwd2) {
+                    showAlert(alertError, '两次输入的密码不一致');
+                    return;
+                }
+                if (!agree) {
+                    showAlert(alertError, '请先同意用户服务协议');
+                    return;
+                }
+
+                var users = JSON.parse(localStorage.getItem('band_users') || '[]');
+                for (var i = 0; i < users.length; i++) {
+                    if (users[i].username === username) {
+                        showAlert(alertError, '该昵称已被注册');
+                        return;
+                    }
+                    if (users[i].email === email) {
+                        showAlert(alertError, '该邮箱已被注册');
+                        return;
+                    }
+                }
+
+                users.push({
+                    username: username,
+                    email: email,
+                    password: pwd,
+                    registerTime: new Date().toISOString()
+                });
+                localStorage.setItem('band_users', JSON.stringify(users));
+
+                showAlert(alertSuccess, '注册成功！请登录');
+                document.getElementById('formRegister').reset();
+                setTimeout(function() {
+                    switchToLogin();
+                    document.getElementById('loginUsername').value = username;
+                    showAlert(alertSuccess, '注册成功，请使用新账号登录');
+                }, 1500);
+            });
+
+            // 登录
+            document.getElementById('formLogin').addEventListener('submit', function(e) {
+                e.preventDefault();
+                hideAlerts();
+
+                var username = document.getElementById('loginUsername').value.trim();
+                var pwd = document.getElementById('loginPassword').value;
+
+                if (!username || !pwd) {
+                    showAlert(alertError, '请输入用户名和密码');
+                    return;
+                }
+
+                var users = JSON.parse(localStorage.getItem('band_users') || '[]');
+                var found = false;
+
+                for (var i = 0; i < users.length; i++) {
+                    if (users[i].username === username && users[i].password === pwd) {
+                        found = true;
+                        break;
+                    }
+                }
+
+                if (!found) {
+                    showAlert(alertError, '用户名或密码错误');
+                    return;
+                }
+
+                localStorage.setItem('band_user', JSON.stringify({
+                    username: username,
+                    loginTime: new Date().toISOString()
+                }));
+
+                showAlert(alertSuccess, '登录成功，正在跳转...');
+                setTimeout(function() {
+                    window.location.href = 'index.html';
+                }, 800);
+            });
+
+            // 忘记密码
+            document.getElementById('forgotPwd').addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('请联系管理员重置密码：admin@gamehub.com');
+            });
+        })();
+    </script>
+</body>
+</html>

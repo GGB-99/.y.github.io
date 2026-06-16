@@ -1,0 +1,1196 @@
+/* ========================================
+   全局通用样式 — 军事风暗色主题
+   ======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans SC', "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #0c0e10;
+    color: #b8c0cc;
+    padding-top: 70px;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Rajdhani', 'Noto Sans SC', sans-serif;
+    color: #e0e4ea;
+    letter-spacing: 1px;
+}
+
+a {
+    color: #d4a843;
+    transition: color 0.25s ease;
+}
+
+a:hover {
+    color: #f0c95c;
+    text-decoration: none;
+}
+
+/* 背景纹理 */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h60v60H0z' fill='none'/%3E%3Cpath d='M30 0v60M0 30h60' stroke='%23ffffff' stroke-opacity='0.015' stroke-width='1'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+}
+
+body > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* ========================================
+   导航栏
+   ======================================== */
+
+.navbar {
+    background-color: rgba(12, 14, 16, 0.95);
+    border-bottom: 2px solid #2a2d33;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+}
+
+.navbar-brand {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #d4a843 !important;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.navbar-brand .fa {
+    color: #c0392b;
+    margin-right: 6px;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #8a95a5;
+    font-weight: 500;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.2s ease, border-bottom 0.2s ease;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #d4a843;
+    background-color: transparent;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+    color: #d4a843;
+    background-color: transparent;
+    border-bottom: 2px solid #d4a843;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: #2a2d33;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #d4a843;
+}
+
+/* ========================================
+   区域标题
+   ======================================== */
+
+.section-title {
+    text-align: center;
+    margin: 50px 0 30px;
+    position: relative;
+}
+
+.section-title h3 {
+    display: inline-block;
+    font-weight: 700;
+    font-size: 26px;
+    color: #e0e4ea;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #d4a843;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.section-title p {
+    color: #5a6470;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* ========================================
+   巨幕 Jumbotron
+   ======================================== */
+
+.jumbotron {
+    background: linear-gradient(135deg, #0c0e10 0%, #1a1d22 40%, #1f2937 100%);
+    color: #e0e4ea;
+    border-radius: 0;
+    padding: 80px 30px;
+    margin-bottom: 40px;
+    border: 1px solid #2a2d33;
+    position: relative;
+    overflow: hidden;
+}
+
+.jumbotron::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(212,168,67,0.06) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.jumbotron::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #c0392b, #d4a843, #c0392b);
+}
+
+.jumbotron h1 {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 48px;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-shadow: 0 0 40px rgba(212,168,67,0.2);
+}
+
+.jumbotron p.lead {
+    font-size: 18px;
+    color: #8a95a5;
+}
+
+.jumbotron .btn-primary {
+    background: linear-gradient(135deg, #c0392b, #96281b);
+    border: none;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 20px rgba(192,57,43,0.3);
+    transition: all 0.3s ease;
+}
+
+.jumbotron .btn-primary:hover {
+    box-shadow: 0 6px 30px rgba(192,57,43,0.5);
+    transform: translateY(-2px);
+}
+
+.jumbotron .btn-default {
+    background: transparent;
+    border: 2px solid #d4a843;
+    color: #d4a843;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.jumbotron .btn-default:hover {
+    background: #d4a843;
+    color: #0c0e10;
+}
+
+/* ========================================
+   轮播 Carousel
+   ======================================== */
+
+.carousel-inner > .item > img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    filter: brightness(0.8) contrast(1.1);
+}
+
+.carousel-caption {
+    background: linear-gradient(transparent, rgba(12,14,16,0.95));
+    padding: 30px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: left;
+}
+
+.carousel-caption h3 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.carousel-caption p {
+    color: #8a95a5;
+}
+
+.carousel-indicators li {
+    border-color: #d4a843;
+    width: 30px;
+    height: 3px;
+    border-radius: 0;
+    margin: 0 3px;
+}
+
+.carousel-indicators .active {
+    background-color: #c0392b;
+    width: 40px;
+}
+
+.carousel-control {
+    background-image: none !important;
+    width: 5%;
+}
+
+.carousel-control .glyphicon {
+    font-size: 30px;
+    color: #d4a843;
+}
+
+/* ========================================
+   游戏分类图标
+   ======================================== */
+
+.icon-demo {
+    text-align: center;
+    padding: 20px 10px;
+    font-size: 28px;
+    color: #5a6470;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.icon-demo:hover {
+    color: #d4a843;
+    border-color: #2a2d33;
+    background: rgba(212,168,67,0.05);
+    transform: translateY(-4px);
+}
+
+.icon-demo p {
+    font-size: 12px;
+    margin-top: 10px;
+    color: #5a6470;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ========================================
+   面板 Panel — 游戏卡片
+   ======================================== */
+
+.panel {
+    border-radius: 2px;
+    border: 1px solid #2a2d33;
+    background-color: #14171c;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    overflow: hidden;
+}
+
+.panel:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+    border-color: #d4a843;
+}
+
+.panel-default > .panel-heading {
+    background-color: #1a1d22;
+    color: #e0e4ea;
+    border-bottom: 1px solid #2a2d33;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.panel-body {
+    color: #8a95a5;
+}
+
+.panel-footer {
+    background-color: #111418;
+    border-top: 1px solid #2a2d33;
+    color: #5a6470;
+    font-style: italic;
+}
+
+.panel-primary > .panel-heading {
+    background: linear-gradient(135deg, #c0392b, #8e2619);
+    color: #fff;
+    border-bottom: none;
+}
+
+.panel-success > .panel-heading {
+    background: linear-gradient(135deg, #1a5c2e, #0e3d1c);
+    color: #4ade80;
+    border-bottom: none;
+}
+
+.panel-warning > .panel-heading {
+    background: linear-gradient(135deg, #8b6914, #6b4f0e);
+    color: #f0c95c;
+    border-bottom: none;
+}
+
+.panel-info > .panel-heading {
+    background: linear-gradient(135deg, #1a4a6b, #0e2f44);
+    color: #5bc0de;
+    border-bottom: none;
+}
+
+.panel-danger > .panel-heading {
+    background: linear-gradient(135deg, #7f1d1d, #5c1414);
+    color: #f87171;
+    border-bottom: none;
+}
+
+.game-cover {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    filter: contrast(1.1) saturate(0.9);
+    transition: filter 0.3s ease;
+}
+
+.panel:hover .game-cover {
+    filter: contrast(1.15) saturate(1.0);
+}
+
+.game-score {
+    display: inline-block;
+    background: #c0392b;
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    width: 46px;
+    height: 46px;
+    line-height: 46px;
+    text-align: center;
+    border-radius: 2px;
+    float: right;
+    box-shadow: 0 2px 8px rgba(192,57,43,0.4);
+}
+
+.game-tag {
+    display: inline-block;
+    padding: 2px 10px;
+    margin: 2px;
+    border-radius: 2px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tag-military { background: #2d1f0e; color: #d4a843; border: 1px solid #3d2b12; }
+.tag-vehicle { background: #0e2d1f; color: #4ade80; border: 1px solid #123d2b; }
+.tag-combat { background: #2d0e0e; color: #f87171; border: 1px solid #3d1212; }
+.tag-tactical { background: #0e1f2d; color: #5bc0de; border: 1px solid #122b3d; }
+.tag-sim { background: #1f0e2d; color: #c084fc; border: 1px solid #2b123d; }
+.tag-fps { background: #2d2d0e; color: #facc15; border: 1px solid #3d3d12; }
+
+/* ========================================
+   媒体对象
+   ======================================== */
+
+.media {
+    padding: 18px;
+    background: #14171c;
+    border-radius: 2px;
+    margin-bottom: 15px;
+    border: 1px solid #2a2d33;
+    border-left: 3px solid #d4a843;
+    transition: all 0.25s ease;
+}
+
+.media:hover {
+    border-left-color: #c0392b;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.media-object {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 2px;
+    border: 1px solid #2a2d33;
+}
+
+.media-heading {
+    color: #e0e4ea;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ========================================
+   进度条
+   ======================================== */
+
+.progress {
+    margin-bottom: 14px;
+    border-radius: 2px;
+    height: 24px;
+    background-color: #1a1d22;
+    border: 1px solid #2a2d33;
+    overflow: hidden;
+}
+
+.progress-bar {
+    line-height: 22px;
+    font-size: 11px;
+    font-weight: 700;
+    font-family: 'Rajdhani', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ========================================
+   折叠面板
+   ======================================== */
+
+.panel-group .panel {
+    border-radius: 2px;
+}
+
+.panel-title > a {
+    color: #e0e4ea;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.panel-title > a:hover {
+    color: #d4a843;
+}
+
+.panel-title > a[aria-expanded="true"] .fa-plus-circle::before {
+    content: "\f056";
+}
+
+/* ========================================
+   模态框
+   ======================================== */
+
+.modal-content {
+    background-color: #14171c;
+    border: 1px solid #2a2d33;
+    color: #8a95a5;
+    border-radius: 2px;
+}
+
+.modal-header {
+    background: linear-gradient(135deg, #1a1d22, #22262e);
+    border-bottom: 2px solid #d4a843;
+    border-radius: 2px 2px 0 0;
+}
+
+.modal-header .close {
+    color: #8a95a5;
+    opacity: 0.8;
+}
+
+.modal-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    color: #d4a843;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.modal-body .fa {
+    color: #d4a843;
+    margin-right: 10px;
+    width: 16px;
+    text-align: center;
+}
+
+.modal-footer {
+    border-top: 1px solid #2a2d33;
+}
+
+/* ========================================
+   表单
+   ======================================== */
+
+.form-section {
+    background: #14171c;
+    padding: 30px;
+    border-radius: 2px;
+    border: 1px solid #2a2d33;
+    margin-bottom: 30px;
+}
+
+.form-section h4 {
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #d4a843;
+    color: #e0e4ea;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form-control {
+    background-color: #0c0e10;
+    border: 1px solid #2a2d33;
+    border-radius: 2px;
+    color: #b8c0cc;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #d4a843;
+    box-shadow: 0 0 0 2px rgba(212,168,67,0.1);
+    background-color: #111418;
+    color: #e0e4ea;
+}
+
+.form-control::placeholder {
+    color: #3d4550;
+}
+
+label {
+    color: #8a95a5;
+    font-weight: 500;
+}
+
+/* ========================================
+   表格
+   ======================================== */
+
+.table-section {
+    background: #14171c;
+    padding: 20px;
+    border-radius: 2px;
+    border: 1px solid #2a2d33;
+    margin-bottom: 30px;
+}
+
+.table {
+    color: #b8c0cc;
+}
+
+.table > thead > tr > th {
+    background-color: #1a1d22;
+    color: #d4a843;
+    border-bottom: 2px solid #d4a843;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 13px;
+}
+
+.table > tbody > tr > td {
+    border-top: 1px solid #22262e;
+    vertical-align: middle;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: #111418;
+}
+
+.table-hover > tbody > tr:hover {
+    background-color: #1a1d22;
+}
+
+/* ========================================
+   列表组
+   ======================================== */
+
+.list-group-item {
+    background-color: #14171c;
+    border: 1px solid #2a2d33;
+    color: #8a95a5;
+    border-radius: 2px !important;
+    margin-bottom: 2px;
+    transition: all 0.2s ease;
+}
+
+.list-group-item:hover {
+    background-color: #1a1d22;
+    border-left-color: #d4a843;
+    border-left-width: 3px;
+}
+
+.list-group-item .fa {
+    margin-right: 8px;
+    color: #d4a843;
+    width: 16px;
+    text-align: center;
+}
+
+.list-group-item.active {
+    background-color: #c0392b;
+    border-color: #c0392b;
+    color: #fff;
+}
+
+.list-group-item.active .badge {
+    background-color: #fff;
+    color: #c0392b;
+}
+
+.badge {
+    background-color: #c0392b;
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+}
+
+.label {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 2px;
+}
+
+/* ========================================
+   图表页
+   ======================================== */
+
+.chart-container {
+    background: #14171c;
+    border-radius: 2px;
+    border: 1px solid #2a2d33;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: border-color 0.3s ease;
+}
+
+.chart-container:hover {
+    border-color: #3a3d43;
+}
+
+.chart-box {
+    width: 100%;
+    height: 400px;
+}
+
+.chart-container h4 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #e0e4ea;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ========================================
+   个人页
+   ======================================== */
+
+.about-header {
+    text-align: center;
+    padding: 50px 0;
+    border-bottom: 1px solid #2a2d33;
+    margin-bottom: 30px;
+}
+
+.about-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 4px solid #2a2d33;
+    object-fit: cover;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 0 4px transparent;
+}
+
+.about-photo:hover {
+    border-color: #d4a843;
+    box-shadow: 0 0 30px rgba(212,168,67,0.2), 0 0 0 4px rgba(212,168,67,0.15);
+}
+
+.about-name {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    margin-top: 20px;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.about-title {
+    font-size: 15px;
+    color: #5a6470;
+    margin-bottom: 30px;
+}
+
+.info-panel {
+    background: #14171c;
+    border-radius: 2px;
+    border: 1px solid #2a2d33;
+    padding: 25px 28px;
+    margin-bottom: 20px;
+}
+
+.info-panel h4 {
+    color: #e0e4ea;
+    border-bottom: 2px solid #d4a843;
+    padding-bottom: 10px;
+    margin-bottom: 18px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.info-panel .fa {
+    color: #d4a843;
+    margin-right: 8px;
+    width: 16px;
+    text-align: center;
+}
+
+.info-panel .list-group-item {
+    background-color: transparent;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom: 1px solid #22262e;
+    padding: 10px 0;
+    border-radius: 0 !important;
+}
+
+.tag-label {
+    display: inline-block;
+    padding: 5px 14px;
+    margin: 4px;
+    border-radius: 2px;
+    font-size: 12px;
+    font-weight: 600;
+    background-color: #1a1d22;
+    color: #8a95a5;
+    border: 1px solid #2a2d33;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tag-label:hover {
+    background-color: #d4a843;
+    color: #0c0e10;
+    border-color: #d4a843;
+}
+
+.timeline-item {
+    border-left: 2px solid #d4a843;
+    padding-left: 20px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -7px;
+    top: 4px;
+    width: 12px;
+    height: 12px;
+    background: #d4a843;
+    border-radius: 50%;
+    border: 2px solid #0c0e10;
+}
+
+.timeline-item .year {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    color: #d4a843;
+    margin-bottom: 4px;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+blockquote {
+    border-left: 3px solid #d4a843;
+    background: #111418;
+    padding: 15px 20px;
+    margin: 0;
+    border-radius: 0 2px 2px 0;
+}
+
+/* ========================================
+   登录页
+   ======================================== */
+
+.login-wrapper {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-card {
+    background: #14171c;
+    border-radius: 2px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    width: 100%;
+    max-width: 900px;
+    border: 1px solid #2a2d33;
+    position: relative;
+}
+
+.login-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #c0392b, #d4a843, #c0392b);
+}
+
+.login-left {
+    background: linear-gradient(135deg, #0c0e10 0%, #1a1d22 50%, #1f2937 100%);
+    color: #e0e4ea;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 500px;
+    position: relative;
+    overflow: hidden;
+}
+
+.login-left::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='50' cy='50' r='40' stroke='%23d4a843' stroke-opacity='0.03' fill='none' stroke-width='1'/%3E%3C/svg%3E");
+}
+
+.login-left h2 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #d4a843;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    position: relative;
+}
+
+.login-left p {
+    font-size: 15px;
+    opacity: 0.85;
+    line-height: 1.7;
+    color: #8a95a5;
+    position: relative;
+}
+
+.login-left .fa-crosshairs {
+    font-size: 60px;
+    margin-bottom: 20px;
+    color: #c0392b;
+    position: relative;
+}
+
+.login-right {
+    padding: 40px 35px;
+}
+
+.login-tabs {
+    display: flex;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #2a2d33;
+}
+
+.login-tabs .tab-btn {
+    flex: 1;
+    padding: 12px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 700;
+    color: #5a6470;
+    border: none;
+    background: none;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    transition: all 0.3s ease;
+    font-size: 15px;
+    font-family: 'Rajdhani', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.login-tabs .tab-btn.active {
+    color: #d4a843;
+    border-bottom-color: #d4a843;
+}
+
+.login-tabs .tab-btn:hover {
+    color: #d4a843;
+}
+
+.login-panel {
+    display: none;
+}
+
+.login-panel.active {
+    display: block;
+}
+
+.login-panel .form-group {
+    margin-bottom: 18px;
+}
+
+.login-panel .form-control {
+    height: 44px;
+    border-radius: 2px;
+    padding-left: 42px;
+}
+
+.input-icon {
+    position: relative;
+}
+
+.input-icon .fa {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #3d4550;
+    font-size: 14px;
+    z-index: 2;
+    pointer-events: none;
+    transition: color 0.3s ease;
+}
+
+.input-icon .form-control:focus ~ .fa {
+    color: #d4a843;
+}
+
+.btn-login {
+    width: 100%;
+    height: 46px;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: 'Rajdhani', sans-serif;
+    border-radius: 2px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-top: 5px;
+    background: linear-gradient(135deg, #c0392b, #8e2619);
+    border: none;
+    color: #fff;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(192,57,43,0.3);
+}
+
+.btn-login:hover {
+    box-shadow: 0 6px 25px rgba(192,57,43,0.5);
+    transform: translateY(-1px);
+    color: #fff;
+}
+
+.login-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 13px;
+    color: #5a6470;
+}
+
+.login-options a {
+    color: #d4a843;
+}
+
+.social-login {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px solid #2a2d33;
+}
+
+.social-login p {
+    color: #3d4550;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.social-login .fa {
+    font-size: 22px;
+    margin: 0 12px;
+    color: #5a6470;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.social-login .fa-steam:hover { color: #66c0f4; }
+.social-login .fa-weixin:hover { color: #07c160; }
+.social-login .fa-qq:hover { color: #12b7f5; }
+
+.login-alert {
+    display: none;
+    margin-bottom: 15px;
+    border-radius: 2px;
+}
+
+/* 导航栏用户 */
+.navbar-user img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    margin-right: 5px;
+    vertical-align: middle;
+    border: 2px solid #d4a843;
+}
+
+.navbar-user span {
+    color: #8a95a5;
+    font-weight: 600;
+}
+
+/* ========================================
+   按钮覆盖
+   ======================================== */
+
+.btn-primary {
+    background: linear-gradient(135deg, #c0392b, #8e2619);
+    border: none;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    box-shadow: 0 4px 15px rgba(192,57,43,0.4);
+}
+
+.btn-default {
+    background-color: #1a1d22;
+    border: 1px solid #2a2d33;
+    color: #8a95a5;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-default:hover {
+    background-color: #22262e;
+    border-color: #d4a843;
+    color: #d4a843;
+}
+
+/* ========================================
+   页脚
+   ======================================== */
+
+.footer {
+    background-color: #0a0c0e;
+    color: #3d4550;
+    padding: 35px 0;
+    margin-top: 60px;
+    text-align: center;
+    border-top: 2px solid #2a2d33;
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #d4a843, transparent);
+}
+
+.footer a {
+    color: #5a6470;
+}
+
+.footer a:hover {
+    color: #d4a843;
+}
+
+.footer .fa {
+    margin: 0 10px;
+    font-size: 18px;
+}
+
+/* ========================================
+   动画
+   ======================================== */
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glowPulse {
+    0%, 100% { box-shadow: 0 0 5px rgba(212,168,67,0.2); }
+    50% { box-shadow: 0 0 20px rgba(212,168,67,0.4); }
+}
+
+.animated-section {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+/* ========================================
+   滚动条
+   ======================================== */
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #0c0e10; }
+::-webkit-scrollbar-thumb { background: #2a2d33; border-radius: 0; }
+::-webkit-scrollbar-thumb:hover { background: #d4a843; }
+
+/* ========================================
+   响应式
+   ======================================== */
+
+@media (max-width: 767px) {
+    .carousel-inner > .item > img { height: 250px; }
+    .jumbotron { padding: 40px 20px; }
+    .jumbotron h1 { font-size: 28px; }
+    .chart-box { height: 300px; }
+    .about-photo { width: 150px; height: 150px; }
+    .login-left { min-height: auto; padding: 30px 20px; }
+    .login-right { padding: 25px 20px; }
+}
